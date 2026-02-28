@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator - BAI4010</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="BMI.html" class="active">BMI Tool</a>
+        <a href="Feedback.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <div class="card">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="e.g. 70">
+            
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="e.g. 175">
+            
+            <button onclick="calculateBMI()" style="margin-top:15px; width:100%; padding:10px; background:#B71234; color:white; border:none; cursor:pointer;">
+                Calculate BMI
+            </button>
+
+            <div id="bmi-display" style="margin-top:20px; font-weight:bold;"></div>
+        </div>
+    </div>
+
+    <script src="bmi.js"></script>
+</body>
+</html>

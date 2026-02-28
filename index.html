@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator | Sport Science Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styling (Internal CSS) */
+        .calc-box {
+            background: #fdfdfd;
+            border: 1px solid #ccc;
+            padding: 25px;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        #bmi-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Experience</a>
+        <a href="BMI.html" class="active">BMI Tool</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <p>This tool is based on standard WHO health categories (as seen on Calculator.net).</p>
+
+        <div class="calc-box">
+            <label>Weight (kg):</label>
+            <input type="number" id="weight" placeholder="e.g. 70">
+
+            <label>Height (cm):</label>
+            <input type="number" id="height" placeholder="e.g. 175">
+
+            <button onclick="calculateBMI()" style="width:100%; padding:10px; background:#2c3e50; color:white; border:none; cursor:pointer; margin-top:10px;">
+                Calculate
+            </button>
+
+            <div id="bmi-result"></div>
+        </div>
+    </div>
+
+    <script src="bmi.js"></script>
+</body>
+</html>
+function calculateBMI() {
+    // 1. Get values from the HTML inputs
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const resultDiv = document.getElementById('bmi-result');
+
+    // 2. Validation
+    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        alert("Please enter valid positive numbers for both weight and height.");
+        return;
+    }
+
+    // 3. Calculation (Metric: kg / m^2)
+    const heightInMeters = height / 100;
+    const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+
+    // 4. Determine Category using If Statements (Based on Calculator.net / WHO)
+    let category = "";
+    let color = "";
+
+    if (bmi < 18.5) {
+        category = "Underweight";
+        color = "#31708f"; // Blue
+    } else if (bmi >= 18.5 && bmi < 25) {
+        category = "Normal";
+        color = "#3c763d"; // Green
+    } else if (bmi >= 25 && bmi < 30) {
+        category = "Overweight";
+        color = "#8a6d3b"; // Yellow/Brown
+    } else {
+        category = "Obese";
+        color = "#a94442"; // Red
+    }
+
+    // 5. Output Actions
+    // Action 1: Show an alert with the result [Requirement]
+    alert("BMI Calculation Complete!\n\nYour BMI: " + bmi + "\nCategory: " + category);
+
+    // Action 2: Update the page content with styling similar to Calculator.net
+    resultDiv.style.display = "block";
+    resultDiv.style.backgroundColor = color;
+    resultDiv.style.color = "white";
+    resultDiv.innerHTML = "BMI = " + bmi + " kg/m<sup>2</sup> (" + category + ")";
+}
