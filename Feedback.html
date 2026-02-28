@@ -1,0 +1,37 @@
+ <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/default.css" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <main class="Feedback">
+      <h4>Feedback Form ... Let Us Know What You Think</h4>
+      <form id="contactForm">
+        <table>
+          <tr>
+            <td>First Name:</td>
+            <td><input type="text" id="firstName" size="40" required /></td>
+          </tr>
+          <tr>
+            <td>E-mail Address:</td>
+            <td><input type="email" id="email" size="40" required /></td>
+          </tr>
+          <tr>
+            <td>Subject:</td>
+            <td><input type="text" id="subject" size="40" required /></td>
+          </tr>
+          <tr>
+            <td>Comments:</td>
+            <td><textarea id="message" rows="6" cols="30" required></textarea></td>
+          </tr>
+        </table>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="successMsg" style="display:none; color: green; margin-top:10px;">Submission Successful!</div>
+    </main>
+
+    <script src="feedback.js"></script>
+  </body>
+</html>

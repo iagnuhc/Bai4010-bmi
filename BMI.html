@@ -1,35 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BMI Calculator - BAI4010</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="BMI.html" class="active">BMI Tool</a>
-        <a href="Feedback.html">Contact</a>
-    </nav>
+  <head>
+    <meta charset="utf-8" />
+    <title>Body Mass Index Calculator</title>
+    <link rel="stylesheet" href="css/default.css" /> </head>
+  <body>
+    <main class="BMI">
+      <h4 class="Centered">Body Mass Index Calculator</h4>
+      <p>Body Mass Index (BMI) is used as an indicator of total body fat. Please input your height and weight.</p>
+      
+      <form id="bmiForm">
+        <table>
+          <tr>
+            <td>Height (cm):</td>
+            <td><input type="text" id="height" size="7" /></td>
+          </tr>
+          <tr>
+            <td>Weight (kg):</td>
+            <td><input type="text" id="weight" size="7" /></td>
+          </tr>
+        </table>
+        <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+        <button type="reset">Reset</button>
+      </form>
 
-    <div class="container">
-        <h1>BMI Calculator</h1>
-        <div class="card">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="e.g. 70">
-            
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="e.g. 175">
-            
-            <button onclick="calculateBMI()" style="margin-top:15px; width:100%; padding:10px; background:#B71234; color:white; border:none; cursor:pointer;">
-                Calculate BMI
-            </button>
-
-            <div id="bmi-display" style="margin-top:20px; font-weight:bold;"></div>
-        </div>
-    </div>
+      <div id="bmiResult" style="margin-top:20px; font-weight:bold; color: #B71234;"></div>
+    </main>
 
     <script src="bmi.js"></script>
-</body>
+  </body>
 </html>
