@@ -1,7 +1,7 @@
  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 阻止頁面刷新 (Prevent refresh)
+    event.preventDefault(); // Prevent refresh
 
-    // 獲取數值 (Get values)
+    // Get values
     const name = document.getElementById('firstName').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
@@ -14,7 +14,7 @@
 
     alert(confirmMessage);
 
-    // 顯示成功訊息 (Show inline success message) [cite: 77]
+    // Show inline success message [cite: 77]
     document.getElementById('successMsg').style.display = 'block';
-    this.reset(); // 重置表單 (Reset form)
+    this.reset(); // Reset form
 });
